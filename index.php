@@ -53,7 +53,7 @@ $day = 1;
 		<div class="col-md-6">
 			<div class="card">
 				<div class="card-header">
-					<?= $date->format('Y月m日') ?>
+					<?= $date->format('Y年m月') ?>
 				</div>
 				<div class="card-body">
 					<table class="table table-bordered">
@@ -70,22 +70,18 @@ $day = 1;
 						<?php for ($i = 0; $i < $weeks; $i++): //週　?>
 							<tr>
 							<?php for ($j = 0; $j < 7; $j++): //日　?>								
+								<td>
 								<?php 
 								//1週目かつ曜日が一日と同じとき
 								if($i == 0 && $firstDayOfWeek == $j){
-									echo '<td>'.$day.'</td>';
-									$day++;
+									echo ''.$day++.'';
 								}
 								//2日目以降かつ月末未満の時
 								else if(1 < $day && $day <= $endOfTheMonth){
-									echo '<td>'.$day.'</td>';
-									$day++;
-								}
-								else
-								{
-									echo '<td></td>';
+									echo ''.$day++.'';
 								}
 								?>
+								</td>
 							<?php endfor ?>
 							</tr>
 						<?php endfor ?>
@@ -93,9 +89,9 @@ $day = 1;
 					</table>
 				</div>
 				<div class="card-footer">
-					<a href="./?month= <?= $month - 1 ?>" class="btn btn-outline-primary">&lt;&lt;前の月</a>
+					<a href="./?month=<?= $month - 1 ?>" class="btn btn-outline-primary">&lt;&lt;前の月</a>
 					<a href="./" class="btn btn-primary">今月</a>
-					<a href="./?month= <?= $month + 1 ?>" class="btn btn-outline-primary">次の月&gt;&gt;</a>
+					<a href="./?month=<?= $month + 1 ?>" class="btn btn-outline-primary">次の月&gt;&gt;</a>
 				</div>
 			</div>
 		</div>
